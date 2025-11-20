@@ -1,4 +1,3 @@
-
 import type { PromptSettings } from '../types.ts';
 
 type PlatformSyntax = string | { base: string; midjourney?: string; dall_e_3?: string; };
@@ -19,7 +18,8 @@ async function getComponents(platformName: string): Promise<ImagePromptComponent
     }
     
     try {
-        const response = await fetch(`../data/${fileName}`);
+        // FIXED: Use absolute path relative to public root
+        const response = await fetch(`/data/${fileName}`);
         if (!response.ok) {
             // Fallback to the main components file if a specific one isn't found
             if (response.status === 404 && fileName !== 'local_image_prompt_components.json') {

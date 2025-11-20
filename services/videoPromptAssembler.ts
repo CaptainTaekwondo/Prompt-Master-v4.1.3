@@ -1,4 +1,3 @@
-
 import type { PromptSettings } from '../types.ts';
 
 type VideoPromptComponents = Record<string, any>;
@@ -18,7 +17,8 @@ async function getComponents(platformName: string): Promise<VideoPromptComponent
     }
     
     try {
-        const response = await fetch(`../data/${fileName}`);
+        // FIXED: Use absolute path relative to public root
+        const response = await fetch(`/data/${fileName}`);
         if (!response.ok) {
             if (response.status === 404 && fileName !== 'local_video_prompt_components.json') {
                 console.warn(`Specific prompt file for ${platformName} not found, falling back to default.`);

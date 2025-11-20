@@ -1,7 +1,3 @@
-
-
-
-
 import React, { useState, useEffect, useMemo, useRef } from 'react';
 import type { PerformanceReportData, PlatformReportData, ReportSample } from '../types.ts';
 import type { translations } from '../translations.ts';
@@ -224,7 +220,8 @@ export const PerformanceReport: React.FC<PerformanceReportProps> = ({ onBack, t,
   const [filter, setFilter] = useState('');
 
   useEffect(() => {
-    const reportFile = `../data/${
+    // FIXED: Use absolute path relative to public root
+    const reportFile = `/data/${
         mode === 'text' ? 'professional_text_test_report.json' :
         mode === 'image' ? 'image_prompt_test_report.json' :
         'video_prompt_test_report.json'

@@ -1,7 +1,3 @@
-
-
-
-
 import type { ProfessionalTextSettings } from '../types.ts';
 import { translations } from '../translations.ts';
 
@@ -13,7 +9,8 @@ async function getComponents(): Promise<TextPromptComponents> {
     return loadedComponents;
   }
   try {
-    const response = await fetch('../data/local_text_prompt_components.json');
+    // FIXED: Use absolute path relative to public root
+    const response = await fetch('/data/local_text_prompt_components.json');
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
