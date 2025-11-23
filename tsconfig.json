@@ -20,6 +20,6 @@
     "noUnusedParameters": false,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src"],
+  "include": ["**/*.ts", "**/*.tsx", "index.tsx", "components/**/*", "services/**/*", "src/**/*", "locales/**/*"],
   "exclude": ["node_modules"]
 }
